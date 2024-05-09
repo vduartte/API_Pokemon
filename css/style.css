@@ -1,0 +1,429 @@
+/*
+Trabalho de API Pokemon
+Criado dia 15/04/2024
+
+Passado pelo professor: Marcel e Vitor.
+
+Desenvolvido pelo Victor Duarte  RA 48110 e Rafaela Guimarães
+
+Versão 1.0
+
+
+
+
+*/
+
+/* Definição das fontes */
+@font-face {
+  font-family: 'Pokemon';
+  src: url('../font/Pokemon\ Solid.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Pokemon2';
+  src: url('../font/Pokemon\ Hollow.ttf') format('truetype');
+}
+
+/* Estilos comuns */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+/* Estilos para o cabeçalho */
+header {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, #1a003a, #2f0e7b, #090909);
+}
+
+.pokemon_direita {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  margin-right: 100px;
+}
+
+.pokemon_esquerda {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  margin-left: 100px;
+}
+
+nav {
+  font-size: 5vh;
+  color: rgb(255, 255, 0);
+  text-shadow: 5px 5px 5px rgba(0, 0, 255, 0.5);
+  font-weight: bold;
+  font-family: 'Pokemon', Arial, sans-serif;
+  letter-spacing: 5px;
+}
+
+/* Estilos para o GIF do cabeçalho */
+#header {
+  width: 100%;
+  height: 100%;
+  background-image: url(../imagens/Mewtoo.gif);
+  background-size: cover;
+}
+
+/* Estilos para o rodapé */
+#footer {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: white;
+  font-size: bold;
+  font-weight: bold;
+  font-family: 'Pokemon';
+  letter-spacing: 5px;
+  text-shadow: rgb(255, 255, 0) 10px;
+}
+
+#caixa_footer {
+  height: inherit;
+  box-sizing: border-box;
+  padding-top: 45px;
+  background: linear-gradient(to bottom, #1a003a, #2f0e7b, #090909);
+}
+
+/*  API Pokémon */
+.pokemon__imagem {
+  position: absolute;
+  bottom: 20%;
+  left: 44%;
+  height: 20%;
+}
+
+.pokemon__data {
+  position: absolute;
+  color: rgb(255, 255, 0);
+  font-family: 'Pokemon';
+  text-shadow: 5px 5px 5px rgba(0, 0, 255, 0.5);
+  top: 75%;
+  right: 25%;
+  background-color: #000;
+  border-radius: 10px;
+}
+
+.pokemon__nome {
+  color: rgb(255, 255, 0);
+  font-family: 'Pokemon';
+  text-shadow: 5px 5px 5px rgba(0, 0, 255, 0.5);
+  letter-spacing: 5px;
+}
+
+.form {
+  position: absolute;
+  width: 500px;
+  margin-left: 220px;
+  top: 85%;
+  left: 13.5%;
+}
+
+.input__buscar {
+  width: 100%;
+  padding: 4%;
+  margin-left: 40%;
+  outline: none;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #3a444d;
+  font-size: 3vh;
+}
+
+.buttons {
+  position: absolute;
+  bottom: -5%;
+  left: 30%;
+  width: 37%;
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  width: 50%;
+  padding: 2%;
+  border: 2px solid #000;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(255, 255, 0);
+  font-family: 'Pokemon';
+  text-shadow: 5px 5px 5px rgb(255, 0, 0);
+  letter-spacing: 5px;
+  background: linear-gradient(to bottom, #1a003a, #2f0e7b, #754cd5);
+}
+
+.button:active {
+  box-shadow: inset -4px 4px 0 #222;
+  font-size: 0.9rem;
+}
+
+/* Estilos para a div "fundo" */
+.fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/********** RESPONSIVIDADE **********/
+
+/* Tablets */
+@media screen and (min-width: 769px) {
+
+  .caixa_header {
+    background-size: cover;
+
+  }
+
+  nav {
+    font-size: 40px;
+  }
+ 
+ 
+  .pokemon__imagem {
+    position: absolute;
+    bottom: 20%;
+    left: 40%;
+    height: 20%;
+  }
+  
+  .pokemon__data {
+    position: absolute; 
+    font-family: 'Pokemon';
+    top: 70%;
+    right: 3%;
+    
+   
+  }
+  
+  .pokemon__nome {
+    font-family: 'Pokemon';
+    letter-spacing: 5px;
+  }
+  
+  .form {
+    position: absolute;
+    width: 500px;
+    margin-left: 1px;
+    top: 82%;
+    left: 13.5%;
+    
+  }
+  
+  .input__buscar {
+    width: 100%;
+
+    margin-left: 30%;
+    font-size: 200%;
+
+  }
+  
+  .buttons {
+    position: absolute;
+    bottom: 60px;;
+    left: 35%;
+    width: 37%;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .button {
+    width: 50%;
+    padding: 2%;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 5px;
+  }
+  
+  .button:active {
+    font-size: 0.9rem;
+  }
+
+}
+
+
+
+/* Desktop */
+@media screen and (min-width: 1000px) {
+  .caixa_header {
+    background-size: cover;
+    height: 300px;
+    width: 200px;
+  }
+
+  nav {
+    font-size: 45px;
+  }
+ 
+ 
+  .pokemon__imagem {
+    position: absolute;
+    bottom: 20%;
+    left: 30%;
+    height: 50%;
+    width: 15%;
+    margin-left: -3%;
+    
+    
+    
+  }
+  
+  .pokemon__data {
+    position: absolute; 
+    font-family: 'Pokemon';
+    top: 70%;
+    right: 17%;
+    
+    
+   
+  }
+  
+  .pokemon__nome {
+    font-family: 'Pokemon';
+    letter-spacing: 13px;
+  
+   
+  }
+  
+  .form {
+    position: absolute;
+    width: 450px;
+    margin-left: 1px;
+    top: 81%;
+    left: 30%;
+    
+  }
+  
+  .input__buscar {
+    width: 100%; 
+    margin-left: 30%;
+    font-size: 100%;
+    
+
+  }
+  
+  .buttons {
+    position: absolute;
+    bottom: 60px;;
+    left: 35%;
+    width: 12%;
+    display: flex;
+    gap: 20px;
+    
+  }
+  
+  .button {
+    width: 50%;
+    padding: 2%;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700px;
+    letter-spacing: 9px;
+    
+  }
+  
+  .button:active {
+    font-size: 0.9rem;
+    
+  }
+
+}
+
+/* Telas Largas *TV* */
+@media screen and (min-width: 1200px) {
+  .caixa_header {
+    background-size: cover;
+     }
+
+  nav {
+    font-size: 37px;
+    letter-spacing: 7px;
+  }
+ 
+ 
+  .pokemon__imagem {
+    position: absolute;
+    bottom: 40%;
+    left: 49%;
+    height: 25%;
+    width: 14%;
+    
+  }
+  
+  .pokemon__data {
+    position: absolute; 
+    font-family: 'Pokemon';
+    top: 50%;
+    right: 10%;
+    
+    
+    
+   
+  }
+  
+  .pokemon__nome {
+    font-family: 'Pokemon';
+    letter-spacing: 7px;
+    
+   
+  }
+  
+  .form {
+    position: absolute;
+    width: 440px;
+    top: 62%;
+    left: 27%;
+    
+    
+    
+  }
+  
+  .input__buscar {
+    width: 100%;
+    margin-left: 30%;
+    font-size: 140%;
+    text-align: center;
+
+  }
+  
+  .buttons {
+    position: absolute;
+    bottom: 40px;;
+    left: 36%;
+    width: 35%;
+    display: flex;
+    gap: 20px;
+    
+  }
+  
+  .button {
+    width: 50%;
+    height: 40%;
+    padding: 2%;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 700px;
+    letter-spacing: 9px;
+    
+  }
+  
+  .button:active {
+    font-size: 0.9rem;
+  }
+
+}
